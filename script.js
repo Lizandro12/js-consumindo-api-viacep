@@ -1,10 +1,17 @@
+async function buscaEndereco(cep){
 
-let consultaCEP = fetch('https://viacep.com.br/ws/01001250/json/').then(resposta => resposta.json()).then(r => {
-    if(r.erro){
-        throw Error('Esse CEP não existe!')
+    try{
 
-    }else{
-        console.log(r)
-    }}).catch(erro => console.log(erro));
+    let consultaCEP = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
 
-console.log(consultaCEP);
+    let consultaCEPConvertida = await consultaCEP.json()
+    if(consultaCEPConvertida.erro){
+        throw Error('CEP não Existe')
+    }
+
+    console.log(consultaCEPConvertida);
+    return consultaCEPConvertida
+    } catch (erro){
+        console.log(erro)
+    }
+}
