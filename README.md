@@ -1,2 +1,2 @@
 # js-consumindo-dados-api-main
- curso de javascript alura
+ Este caso de estudo foi construido com a intenção de praticar o consumo de API em Javascript.
